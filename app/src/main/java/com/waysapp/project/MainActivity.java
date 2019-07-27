@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sendNewActivity();
         //setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_dropdown);
 
@@ -197,5 +200,13 @@ public class MainActivity extends AppCompatActivity {
         a.setDuration(500);
         a.setInterpolator(new AccelerateInterpolator());
         v.startAnimation(a);
+    }
+
+
+    public void sendNewActivity(){
+
+        Intent myIntent = new Intent(MainActivity.this, Ac01.class);
+       // myIntent.putExtra("key", value); //Optional parameters
+        MainActivity.this.startActivity(myIntent);
     }
 }
